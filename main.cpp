@@ -13,9 +13,6 @@ int main()
 {
     ifstream dictionary("slowa.txt");
 
-    cout << "Written by Sebastian Cieslak at 09.2017" << endl;
-    cout << endl;
-
     if(dictionary.is_open()) cout << "Ready..." << endl;
     else return 1;
 
@@ -44,6 +41,9 @@ int main()
 
     cout << endl;
     cout << "Thanks for use!" << endl;
+
+    dictionary.close();
+
     return 0;
 }
 
@@ -59,7 +59,7 @@ bool compare(string input, string line, int length)
         for(int j = 0; j < length; j++)         //loop on line for every letter of anagram
         {
             flag = false;
-            for(int l = 0; l < length; l++)     //checking
+            for(int l = 0; l < index; l++)     //checking
                 if(tab[l] == j) flag = true;
 
             if(flag == false && input[i] == line[j])
